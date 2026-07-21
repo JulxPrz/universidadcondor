@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universidad Condor Unido</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="barra-superior">
+        <div class="contenido-barra">
+
+            <div class="texto">
+                Universidad Cóndor Unido de Colombia, ubicada en el territorio de la ciudad de Barranquilla, Atlántico.
+            </div>
+
+            <div class="redes-sociales">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+
+        </div>
+    </header>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+
+<!-- SECCIONES -->
+<nav class="navbar">
+
+<div class="logo">
+    <a href="index.html">
+        <img src="img/logo.svg" alt="Universidad Cóndor Unido">
+    </a>
+</div>
+
+    <ul class="menu">
+        <li ><a href="index.html">Inicio</a></li>
+        <li><a href="#">Programas</a></li>
+        <li><a href="#">Admisiones</a></li>
+        <li><a href="#">Nuestros campus</a></li>
+<li class="activo"><a href="#">Estudiante</a></li>    </ul>
+
+</nav>
+
+<!-- ================= CONTACTO ================= -->
+
+<section class="contacto">
+
+    <div class="contenedor-contacto">
+
+        <!-- Menú lateral -->
+        <aside class="menu-contacto">
+
+            <h3>Contacto Universidad Cóndor Unido</h3>
+
+            <ul>
+                <li class="activo">
+                    <a href="#">Contáctenos <span>›</span></a>
+                </li>
+
+            </ul>
+
+        </aside>
+
+        <!-- Formulario -->
+        <div class="formulario-contacto">
+
+            <h2>Envíenos un mensaje</h2>
+
+            <form action="#" method="post">
+
+                <!-- Tipo de consulta -->
+                <div class="fila">
+                    <select name="asunto" required>
+                        <option value="">Seleccione</option>
+                        <option>Información académica</option>
+                        <option>Admisiones</option>
+                        <option>Matrículas</option>
+                        <option>Soporte</option>
+                    </select>
+                </div>
+
+                <!-- Nombres y Apellidos -->
+                <div class="fila-doble">
+                    <input
+                        type="text"
+                        name="nombre"
+                        placeholder="Nombres"
+                        required>
+
+                    <input
+                        type="text"
+                        name="apellido"
+                        placeholder="Apellidos"
+                        required>
+                </div>
+
+                <!-- Ciudad y Teléfono -->
+                <div class="fila-doble">
+
+                    <input
+                        type="text"
+                        name="ciudad"
+                        placeholder="Ciudad">
+
+                    <input
+                        type="tel"
+                        name="telefono"
+                        placeholder="Teléfono"
+                        pattern="[0-9]{7,10}">
+
+                </div>
+
+                <!-- Correo y Celular -->
+                <div class="fila-doble">
+
+                    <input
+                        type="email"
+                        name="correo"
+                        placeholder="Correo electrónico personal"
+                        required>
+
+                    <input
+                        type="tel"
+                        name="celular"
+                        placeholder="Celular"
+                        pattern="[0-9]{10}">
+
+                </div>
+
+                <!-- Mensaje -->
+
+                <textarea
+                    name="mensaje"
+                    placeholder="Mensaje"
+                    rows="8"
+                    required></textarea>
+
+                <!-- Botón -->
+
+                <div class="boton">
+
+                    <button type="submit">
+                        Enviar
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
