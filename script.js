@@ -156,3 +156,55 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3500);
   }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const formPago = document.getElementById('form-pago-condor');
+  const toast = document.getElementById('toast-notificacion');
+  const toastMensaje = document.getElementById('toast-mensaje');
+  const btnPagar = document.querySelector('.btn-confirmar-pago');
+
+  if (formPago) {
+    formPago.addEventListener('submit', (e) => {
+      e.preventDefault(); // Evita recargar la página inmediatamente
+
+      // 1. Mostrar la bandeja de notificación
+      toast.classList.remove('toast-oculto');
+
+      // 2. Deshabilitar el botón de pago
+      if (btnPagar) {
+        btnPagar.disabled = true;
+        btnPagar.style.opacity = '0.6';
+        btnPagar.style.cursor = 'not-allowed';
+      }
+
+      // 3. Temporizador de 5 segundos con cuenta regresiva
+      let segundosRestantes = 5;
+
+      const intervalo = setInterval(() => {
+        segundosRestantes--;
+        if (segundosRestantes > 0) {
+          toastMensaje.textContent = `Serás redirigido al inicio en ${segundosRestantes} segundo${segundosRestantes > 1 ? 's' : ''}...`;
+        }
+      }, 1000);
+
+      // 4. Redirección a index.html tras 5000 ms (5 segundos)
+      setTimeout(() => {
+        clearInterval(intervalo);
+        window.location.href = "index.html";
+      }, 5000);
+    });
+  }
+});
+
+const btnVolver = document.getElementById('btn-volver-inicio');
+
+if (btnVolver) {
+  btnVolver.addEventListener('click', function(e) {
+    // Si quieres que haga scroll al inicio de la misma página:
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
