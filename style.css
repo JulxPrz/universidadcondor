@@ -2543,3 +2543,55 @@ transform:translateY(0);
   left: 25px;
   z-index: 999;
 }
+
+.chatbot-quick-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+}
+
+.quick-opt {
+  background-color: #1e293b;
+  color: #ffffff;
+  border: 1px solid #334155;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quick-opt:hover {
+  background-color: #003366;
+  border-color: #38bdf8;
+  transform: translateX(3px);
+}
+
+.sub-options-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0 12px 0;
+}
+
+.sub-opt-btn {
+  background-color: #0284c7;
+  color: #ffffff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 16px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.sub-opt-btn:hover {
+  background-color: #0369a1;
+}
