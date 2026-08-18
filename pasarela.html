@@ -3,138 +3,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universidad Condor Unido</title>
+    <title>Pasarela de Pago - Universidad Cóndor Unido</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- CSS -->
+    <!-- Archivos CSS -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pago.css">
 </head>
 <body>
 
+    <!-- BARRA SUPERIOR -->
     <header class="barra-superior">
         <div class="contenido-barra">
-
             <div class="texto">
                 Universidad Cóndor Unido de Colombia, ubicada en el territorio de la ciudad de Barranquilla, Atlántico.
             </div>
-
-            <div class="redes-sociales">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-x-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-            </div>
-
         </div>
     </header>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
-
-<!-- SECCIONES -->
-<nav class="navbar">
-
-<div class="logo">
-    <a href="index.html">
-        <img src="img/logo.svg" alt="Universidad Cóndor Unido">
-    </a>
-</div>
-
-    <ul class="menu">
-<li><a href="index.html" class="nav-item">Inicio</a></li>
-        <li><a href="#">Programas</a></li>
-        <li><a href="#">Admisiones</a></li>
-        <li><a href="#">Nuestros campus</a></li>
-        <li class="activo"><a href="#">Estudiante</a></li>
-    </ul>
-
-    
-</nav>
-
-<!-- ================= PASARELA DE PAGOS! ================== -->
- 
-
-
-<!-- =========================
-     INICIO CHATBOT FLOTANTE
-========================= -->
-
-<!-- Botón Flotante para Abrir el Chatbot -->
-  <button id="chatbot-toggle-btn" onclick="toggleChatbot()">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-    </svg>
-    Asistente Cóndor
-  </button>
-
-  <!-- Contenedor Principal del Chatbot -->
-  <div id="chatbot-container" class="chatbot-hidden">
-    
-    <!-- Encabezado -->
-    <div class="chatbot-header">
-      <div class="chatbot-header-info">
-        <div class="chatbot-avatar">UC</div>
-        <div>
-          <h3>Universidad Cóndor Unido</h3>
-          <span>Asistente Virtual Académico</span>
+    <!-- NAVEGACIÓN -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logo.svg" alt="Universidad Cóndor Unido">
+            </a>
         </div>
-      </div>
-      <button class="chatbot-close-btn" onclick="toggleChatbot()">&times;</button>
-    </div>
+    </nav>
 
-    <!-- Barra Superior de Botones / Tags -->
-    <div class="chatbot-tags-bar">
-      <button onclick="sendQuickMessage('Oferta Académica')">🎓 Carreras</button>
-      <button onclick="sendQuickMessage('Admisiones')">📝 Admisiones</button>
-      <button onclick="sendQuickMessage('Noticias')">📰 Noticias</button>
-      <button onclick="sendQuickMessage('Contacto')">📞 Contacto</button>
-    </div>
+    <!-- ================= PASARELA DE PAGOS ================== -->
+    <section class="pasarela-pago-root">
+      <div class="pasarela-container">
+        
+        <!-- COLUMNA IZQUIERDA: RESUMEN -->
+        <div class="col-resumen">
+          <span class="badge-portal">Portal Transaccional</span>
+          <h2>Resumen de Pago de Matrícula</h2>
+          <p class="descripcion-pago">
+            Estás a un paso de completar tu inscripción en la <strong>Universidad Cóndor Unido</strong>. Verifica el desglose de tu concepto de pago antes de continuar.
+          </p>
 
-    <!-- Area de Mensajes del Chat -->
-    <div class="chatbot-messages" id="chatbot-messages">
-      <!-- Mensaje inicial del bot -->
-      <div class="chat-message bot-message">
-        ¡Hola! Bienvenid@ a la Universidad Cóndor Unido. ¿En qué puedo ayudarte hoy?
-        <br><br>
-        Puedes preguntarme por:
-        <ul>
-          <li>Oferta académica y carreras</li>
-          <li>Proceso de admisiones e inscripciones</li>
-          <li>Noticias e información institucional</li>
-          <li>Contacto y atención</li>
-        </ul>
-        <div class="quick-buttons-grid">
-          <button onclick="sendQuickMessage('Oferta Académica')">🎓 Oferta Académica</button>
-          <button onclick="sendQuickMessage('Admisiones')">📝 Admisiones</button>
-          <button onclick="sendQuickMessage('Noticias')">📰 Noticias</button>
-          <button onclick="sendQuickMessage('Contacto')">📞 Contacto</button>
+          <div class="caja-desglose">
+            <div class="fila-detalle">
+              <span>Concepto:</span>
+              <strong>Inscripción / Valor de Matrícula</strong>
+            </div>
+            <div class="fila-detalle">
+              <span>Programa:</span>
+              <strong>Ingeniería en Sistemas</strong>
+            </div>
+            <div class="fila-detalle">
+              <span>Periodo Académico:</span>
+              <strong>2026-02</strong>
+            </div>
+            <div class="fila-detalle">
+              <span>Sede:</span>
+              <strong>Campus Barranquilla</strong>
+            </div>
+            <hr class="linea-separadora">
+            <div class="fila-detalle fila-total">
+              <span>Total a Pagar:</span>
+              <span class="monto-total">$ 150.000 COP</span>
+            </div>
+          </div>
+
+          <div class="info-atencion">
+            <p><strong>Atención al estudiante:</strong><br>Lunes a Viernes: 8:00 AM – 6:00 PM</p>
+            <p class="texto-seguro">🔒 Pago encriptado de 256 bits mediante conexión segura SSL.</p>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Entrada de Texto y Botón de Envío -->
-    <div class="chatbot-input-area">
-      <input type="text" id="chatbot-input" placeholder="Escribe tu consulta aquí..." onkeypress="handleKeyPress(event)" />
-      <button onclick="sendMessage()" id="chatbot-send-btn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="22" y1="2" x2="11" y2="13"></line>
-          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        <!-- COLUMNA DERECHA: FORMULARIO -->
+        <div class="col-formulario">
+          <form id="form-pago-condor" novalidate>
+            
+            <div class="grupo-doble">
+              <div class="campo-form">
+                <label for="pago-nombre">Nombre:*</label>
+                <input type="text" id="pago-nombre" placeholder="Ej. Juan" required>
+              </div>
+              <div class="campo-form">
+                <label for="pago-apellido">Apellido:*</label>
+                <input type="text" id="pago-apellido" placeholder="Ej. Pérez" required>
+              </div>
+            </div>
+
+            <div class="campo-form">
+              <label for="pago-doc">Número de Documento / Cédula:*</label>
+              <input type="text" id="pago-doc" placeholder="1003456789" required>
+            </div>
+
+            <div class="campo-form">
+              <label for="pago-email">Dirección de correo electrónico:*</label>
+              <input type="email" id="pago-email" placeholder="estudiante@correo.com" required>
+            </div>
+
+            <div class="campo-form">
+              <label for="pago-metodo">Método de pago:*</label>
+              <select id="pago-metodo" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="pse">PSE (Débito de cuenta ahorros/corriente)</option>
+                <option value="card">Tarjeta de Crédito / Débito</option>
+                <option value="efectivo">Punto de pago efectivo (Efecty / Baloto)</option>
+              </select>
+            </div>
+
+            <div class="campo-form">
+              <label for="pago-tarjeta">Número de tarjeta / Cuenta:*</label>
+              <input type="text" id="pago-tarjeta" placeholder="4500 0000 0000 0000" maxlength="19" required>
+            </div>
+
+            <div class="grupo-doble">
+              <div class="campo-form">
+                <label for="pago-expira">Fecha de Vencimiento:*</label>
+                <input type="text" id="pago-expira" placeholder="MM/AA" maxlength="5" required>
+              </div>
+              <div class="campo-form">
+                <label for="pago-cvv">Código CVC/CVV:*</label>
+                <input type="password" id="pago-cvv" placeholder="123" maxlength="4" required>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-confirmar-pago">Pagar $ 150.000 COP</button>
+
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BANDEJA DE NOTIFICACIÓN FLOTANTE -->
+    <div id="toast-notificacion" class="toast-oculto">
+      <div class="toast-icono">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
         </svg>
-      </button>
+      </div>
+      <div class="toast-contenido">
+        <strong id="toast-titulo">¡Pago procesado con éxito!</strong>
+        <p id="toast-mensaje">Serás redirigido al inicio en 5 segundos...</p>
+      </div>
     </div>
 
-    <!-- Pie del Chatbot -->
-    <div class="chatbot-footer">Powered by Universidad Cóndor Unido</div>
-  </div>
+    <!-- =========================
+         INICIO CHATBOT FLOTANTE
+    ========================= -->
+    <button id="chatbot-toggle-btn" onclick="toggleChatbot()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      Asistente Cóndor
+    </button>
 
-  <script src="script.js"></script>
+    <div id="chatbot-container" class="chatbot-hidden">
+      <div class="chatbot-header">
+        <div class="chatbot-header-info">
+          <div class="chatbot-avatar">UC</div>
+          <div>
+            <h3>Universidad Cóndor Unido</h3>
+            <span>Asistente Virtual Académico</span>
+          </div>
+        </div>
+        <button class="chatbot-close-btn" onclick="toggleChatbot()">&times;</button>
+      </div>
 
-<!-- =========================
-      FIN CHATBOT FLOTANTE
-========================= -->
+      <div class="chatbot-tags-bar">
+        <button onclick="sendQuickMessage('Oferta Académica')">🎓 Carreras</button>
+        <button onclick="sendQuickMessage('Admisiones')">📝 Admisiones</button>
+        <button onclick="sendQuickMessage('Noticias')">📰 Noticias</button>
+        <button onclick="sendQuickMessage('Contacto')">📞 Contacto</button>
+      </div>
 
- </body>
+      <div class="chatbot-messages" id="chatbot-messages">
+        <div class="chat-message bot-message">
+          ¡Hola! Bienvenid@ a la Universidad Cóndor Unido. ¿En qué puedo ayudarte hoy?
+          <br><br>
+          Puedes preguntarme por:
+          <ul>
+            <li>Oferta académica y carreras</li>
+            <li>Proceso de admisiones e inscripciones</li>
+            <li>Noticias e información institucional</li>
+            <li>Contacto y atención</li>
+          </ul>
+          <div class="quick-buttons-grid">
+            <button onclick="sendQuickMessage('Oferta Académica')">🎓 Oferta Académica</button>
+            <button onclick="sendQuickMessage('Admisiones')">📝 Admisiones</button>
+            <button onclick="sendQuickMessage('Noticias')">📰 Noticias</button>
+            <button onclick="sendQuickMessage('Contacto')">📞 Contacto</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="chatbot-input-area">
+        <input type="text" id="chatbot-input" placeholder="Escribe tu consulta aquí..." onkeypress="handleKeyPress(event)" />
+        <button onclick="sendMessage()" id="chatbot-send-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+
+      <div class="chatbot-footer">Powered by Universidad Cóndor Unido</div>
+    </div>
+
+    <!-- SCRIPTS DE NAVEGACIÓN Y PAGOS -->
+    <script src="script.js"></script>
+    <script>
+      // Lógica de activación de la notificación flotante de pago
+      document.addEventListener('DOMContentLoaded', () => {
+        const formPago = document.getElementById('form-pago-condor');
+        const toast = document.getElementById('toast-notificacion');
+        const toastMensaje = document.getElementById('toast-mensaje');
+        const btnPagar = document.querySelector('.btn-confirmar-pago');
+
+        if (formPago) {
+          formPago.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Muestra el toast
+            toast.classList.remove('toast-oculto');
+
+            if (btnPagar) {
+              btnPagar.disabled = true;
+              btnPagar.style.opacity = '0.6';
+              btnPagar.style.cursor = 'not-allowed';
+            }
+
+            let segundos = 5;
+            const timer = setInterval(() => {
+              segundos--;
+              if (segundos > 0) {
+                toastMensaje.textContent = `Serás redirigido al inicio en ${segundos} segundo${segundos > 1 ? 's' : ''}...`;
+              }
+            }, 1000);
+
+            setTimeout(() => {
+              clearInterval(timer);
+              window.location.href = "index.html";
+            }, 5000);
+          });
+        }
+      });
+    </script>
+
+    <a href="index.html" class="btn-volver-inicio flotante" id="btn-volver-inicio">
+  <svg class="icono-flecha" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="19" y1="12" x2="5" y2="12"></line>
+    <polyline points="12 19 5 12 12 5"></polyline>
+  </svg>
+  <span>Regresar</span>
+</a>
+
+</body>
 </html>
