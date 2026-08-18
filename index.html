@@ -204,46 +204,73 @@
 </section> <!-- Fin programas -->
 
 <!-- ================= FORMULARIO ================= -->
-
 <section class="formulario" id="inscripcion">
+  <div class="contenedor-formulario">
+    <h2>Rellena tus datos</h2>
 
-    <div class="contenedor-formulario">
+    <form id="form-inscripcion" action="pasarela.html" method="GET">
+      <div class="grupo">
+        <label for="nombre">Nombre completo:<span>*</span></label>
+        <input type="text" id="nombre" name="nombre" required placeholder="Ej. Ana García">
+      </div>
 
-        <h2>Rellena tus datos</h2>
+      <div class="grupo">
+        <label for="correo">Correo electrónico:<span>*</span></label>
+        <input type="email" id="correo" name="correo" required placeholder="ejemplo@correo.com">
+      </div>
 
-        <form>
+      <div class="grupo">
+        <label for="carrera">Carrera de interés:<span>*</span></label>
+        <input type="text" id="carrera" name="carrera" required placeholder="Ej. Diseño Gráfico">
+      </div>
 
-            <div class="grupo">
-                <label for="nombre">Nombre completo:<span>*</span></label>
-                <input type="text" id="nombre" required>
-            </div>
+      <div class="grupo">
+        <label for="telefono">Teléfono:<span>*</span></label>
+        <input 
+          type="tel" 
+          id="telefono" 
+          name="telefono" 
+          maxlength="10" 
+          pattern="[0-9]{10}" 
+          inputmode="numeric" 
+          oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+          placeholder="3001234567"
+          required>
+      </div>
 
-            <div class="grupo">
-                <label for="correo">Correo electrónico:<span>*</span></label>
-                <input type="email" id="correo" required>
-            </div>
+      <div class="contenedor-boton">
+        <button type="submit" class="btn-inscribirse">
+          Inscribirte
+        </button>
+      </div>
+    </form>
 
-            <div class="grupo">
-                <label for="carrera">Carrera de interés:<span>*</span></label>
-                <input type="text" id="carrera" required>
-            </div>
+    <!-- Modal de Redirección -->
+    <div id="payment-modal" class="modal-overlay modal-hidden">
+      <div class="modal-content">
+        <div class="spinner"></div>
+        <h3>Redireccionando a pagar...</h3>
+        <p>Por favor, espera un momento.</p>
+      </div>
+    </div>
+  </div> <!-- Fin contenedor-formulario -->
+</section>
 
-            <div class="grupo">
-                <label for="telefono">Teléfono:<span>*</span></label>
-                <input type="tel" id="telefono" maxlength="10"pattern="[0-9]{10}" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')"
-    required>
-            </div>
+<!-- Script para activar el modal y redirigir -->
+<script>
+  document.getElementById('form-inscripcion').addEventListener('submit', function(e) {
+    e.preventDefault(); // Detiene el envío inmediato para mostrar el modal
+    
+    // Muestra el modal quitando la clase modal-hidden
+    const modal = document.getElementById('payment-modal');
+    modal.classList.remove('modal-hidden');
 
-            
-<div class="contenedor-boton">
-    <button type="submit" class="btn-inscribirse">
-        Inscribirte
-    </button>
-</div>
-
-        </form>
-
-    </div> <!-- Fin contenedor-formulario -->
+    // Espera 1.5 segundos mostrando el spinner antes de redirigir a pasarela.html
+    setTimeout(() => {
+      window.location.href = 'pasarela.html';
+    }, 1500);
+  });
+</script>
 
 </section>
 
@@ -259,7 +286,7 @@
 
             <!-- Mapa -->
             <div class="mapa">
-                <img src="img/mini-mapa-gran-caribe-transparent.png" alt="Mapa de Colombia">
+                <img src="img/atlanticocolombiano.jpg" alt="Mapa de Colombia">
             </div>
 
             <!-- Direcciones -->
