@@ -2012,3 +2012,534 @@ transform:translateY(0);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
+
+/* SECCIONES DE INSCRIBIRTE */
+
+/* Fondo oscuro translúcido */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  backdrop-filter: blur(4px);
+  transition: opacity 0.3s ease;
+}
+
+/* Caja de la ventana modal centrada */
+.modal-content {
+  background-color: #ffffff;
+  padding: 35px 40px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-width: 380px;
+  width: 90%;
+  border: 2px solid #002244;
+}
+
+.modal-content h3 {
+  color: #002244;
+  font-size: 20px;
+  margin: 15px 0 8px 0;
+  font-family: Arial, sans-serif;
+}
+
+.modal-content p {
+  color: #666666;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Ocultar modal */
+.modal-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Círculo de carga (Spinner) */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #002244;
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* pago pasarela */
+
+/* ============================================================
+   ESTILOS AISLADOS - PASARELA DE PAGOS
+   (No afecta el footer ni otros componentes de index.html)
+   ============================================================ */
+
+/* 1. Contenedor Raíz de la Pasarela */
+.checkout-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.checkout-page-container .payment-wrapper {
+  width: 100%;
+  max-width: 1100px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 50px 40px;
+  border: 1px solid #e0e0e0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.checkout-page-container .payment-container {
+  display: flex;
+  gap: 60px;
+}
+
+/* 2. Columna Izquierda (Resumen) */
+.checkout-page-container .summary-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-page-container .badge-tag {
+  background-color: #002244;
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  width: fit-content;
+  margin-bottom: 15px;
+}
+
+.checkout-page-container .summary-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #002244;
+  line-height: 1.2;
+  margin: 0 0 15px 0;
+}
+
+.checkout-page-container .summary-description {
+  color: #555555;
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0 0 25px 0;
+}
+
+.checkout-page-container .checkout-details {
+  background-color: #f4f6f8;
+  border-left: 4px solid #e2a01d;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+.checkout-page-container .detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #444444;
+}
+
+.checkout-page-container .divider {
+  border: none;
+  border-top: 1px solid #dcdcdc;
+  margin: 12px 0;
+}
+
+.checkout-page-container .total-row {
+  margin-bottom: 0;
+  font-size: 16px;
+  align-items: center;
+}
+
+.checkout-page-container .price-tag {
+  font-size: 22px;
+  color: #002244;
+  font-weight: 800;
+}
+
+.checkout-page-container .security-info {
+  font-size: 13px;
+  color: #666666;
+  margin-top: auto;
+  line-height: 1.5;
+}
+
+.checkout-page-container .secure-text {
+  margin-top: 10px;
+  color: #28a745;
+  font-weight: bold;
+}
+
+/* 3. Columna Derecha (Formulario) */
+.checkout-page-container .form-column {
+  flex: 1;
+}
+
+.checkout-page-container .form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-page-container .form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.checkout-page-container .half-width {
+  flex: 1;
+}
+
+.checkout-page-container label {
+  font-size: 13px;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.checkout-page-container input, 
+.checkout-page-container select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.checkout-page-container input:focus, 
+.checkout-page-container select:focus {
+  border-color: #002244;
+  box-shadow: 0 0 5px rgba(0, 34, 68, 0.2);
+}
+
+.checkout-page-container .btn-pay-submit {
+  width: 100%;
+  background-color: #0056b3;
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 10px;
+}
+
+.checkout-page-container .btn-pay-submit:hover {
+  background-color: #003d80;
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+  .checkout-page-container .payment-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+/* ============================================================
+   PASARELA DE PAGOS - ESTILOS ISOLADOS
+   ============================================================ */
+
+.pasarela-pago-root {
+  width: 100%;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.pasarela-pago-root * {
+  box-sizing: border-box;
+}
+
+.pasarela-pago-root .pasarela-container {
+  display: flex;
+  gap: 50px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e0e0e0;
+}
+
+/* Columna Izquierda */
+.pasarela-pago-root .col-resumen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pasarela-pago-root .badge-portal {
+  background-color: #002244;
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+
+.pasarela-pago-root .col-resumen h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #002244;
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+
+.pasarela-pago-root .descripcion-pago {
+  color: #555555;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+}
+
+.pasarela-pago-root .caja-desglose {
+  background-color: #f4f6f8;
+  border-left: 4px solid #e2a01d;
+  padding: 18px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.pasarela-pago-root .fila-detalle {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #444444;
+}
+
+.pasarela-pago-root .linea-separadora {
+  border: none;
+  border-top: 1px solid #dcdcdc;
+  margin: 12px 0;
+}
+
+.pasarela-pago-root .fila-total {
+  margin-bottom: 0;
+  align-items: center;
+}
+
+.pasarela-pago-root .monto-total {
+  font-size: 20px;
+  color: #002244;
+  font-weight: 800;
+}
+
+.pasarela-pago-root .info-atencion {
+  font-size: 13px;
+  color: #666666;
+  margin-top: auto;
+  line-height: 1.5;
+}
+
+.pasarela-pago-root .texto-seguro {
+  margin-top: 8px;
+  color: #28a745;
+  font-weight: bold;
+}
+
+/* Columna Derecha (Formulario) */
+.pasarela-pago-root .col-formulario {
+  flex: 1;
+}
+
+.pasarela-pago-root .campo-form {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pasarela-pago-root .grupo-doble {
+  display: flex;
+  gap: 15px;
+}
+
+.pasarela-pago-root .grupo-doble .campo-form {
+  flex: 1;
+}
+
+.pasarela-pago-root label {
+  font-size: 13px;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.pasarela-pago-root input,
+.pasarela-pago-root select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  background-color: #ffffff;
+  color: #333333;
+  height: 42px;
+}
+
+.pasarela-pago-root input:focus,
+.pasarela-pago-root select:focus {
+  border-color: #002244;
+  box-shadow: 0 0 4px rgba(0, 34, 68, 0.25);
+}
+
+.pasarela-pago-root .btn-confirmar-pago {
+  width: 100%;
+  background-color: #0056b3;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 10px;
+  height: 46px;
+}
+
+.pasarela-pago-root .btn-confirmar-pago:hover {
+  background-color: #003d80;
+}
+
+/* Adaptación Pantallas Pequeñas */
+@media (max-width: 850px) {
+  .pasarela-pago-root .pasarela-container {
+    flex-direction: column;
+    gap: 30px;
+    padding: 25px;
+  }
+}
+
+/* BANDEJA DE NOTIFICACIÓN (TOAST) */
+#toast-notificacion {
+  position: fixed;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #002244; /* Azul institucional */
+  color: #ffffff;
+  border: 2px solid #e2a01d;  /* Detalle dorado */
+  padding: 16px 24px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 999999;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  font-family: Arial, sans-serif;
+  min-width: 320px;
+}
+
+/* Estado oculto (fuera de la pantalla arriba) */
+#toast-notificacion.toast-oculto {
+  opacity: 0;
+  top: -100px;
+  pointer-events: none;
+}
+
+.toast-icono {
+  color: #28a745; /* Verde de éxito */
+  display: flex;
+  align-items: center;
+}
+
+.toast-contenido {
+  display: flex;
+  flex-direction: column;
+}
+
+.toast-contenido strong {
+  font-size: 15px;
+  color: #ffffff;
+}
+
+.toast-contenido p {
+  font-size: 13px;
+  color: #e0e0e0;
+  margin: 2px 0 0 0;
+}
+
+.btn-volver-inicio {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  
+  /* Colores */
+  background-color: #002244; /* Azul oscuro */
+  color: #ffffff;            /* Texto blanco */
+  border: 2px solid #d97706;  /* Borde dorado/amarillo */
+  
+  /* Forma redondeada y tamaño */
+  padding: 10px 24px;
+  border-radius: 50px;       /* Forma de píldora */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  
+  /* Sombra y transiciones */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+/* Efecto al pasar el mouse */
+.btn-volver-inicio:hover {
+  background-color: #001830;
+  border-color: #f59e0b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+/* Icono de flecha */
+.btn-volver-inicio .icono-flecha {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* Opcional: Si deseas que quede fijo en la esquina inferior izquierda de la pantalla */
+.btn-volver-inicio.flotante {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  z-index: 999;
+}
