@@ -54,97 +54,9 @@
     
 </nav>
 
-<!-- ================= PANEL ================== -->
+<!-- ================= PASARELA DE PAGOS! ================== -->
  
-<meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acceso a Procesos Académicos</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
 
-  <!-- BANDEJA DE NOTIFICACIÓN FLOTANTE -->
-  <div id="toast-notification" class="toast-hidden">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-      <polyline points="22 4 12 14.01 9 11.01"></polyline>
-    </svg>
-    <span id="toast-message">¡Ingreso exitoso!</span>
-  </div>
-
-  <!-- CONTENEDOR CENTRADO -->
-  <div class="login-page-container">
-    <form id="academic-login-form" class="login-card" novalidate>
-      <h2>Bienvenido(a) Aquí encontrarás<br><span>TUS PROCESOS ACADÉMICOS</span></h2>
-      <h3>Credenciales</h3>
-      <p>Introducce tu correo electrónico</p>
-
-      <!-- Campo Correo -->
-      <input 
-        type="email" 
-        id="email" 
-        class="input-card" 
-        placeholder="Correo Institucional" 
-        required 
-      />
-
-      <!-- Campo Contraseña -->
-      <input 
-        type="password" 
-        id="password" 
-        class="input-card" 
-        placeholder="Contraseña" 
-        required 
-      />
-
-      <a href="#" class="recovery-link">
-        ¿Ha perdido el acceso a tu cuenta? <span>Utilizar código de recuperación</span>
-      </a>
-
-      <!-- Botón que ejecuta la acción directamente -->
-      <button type="button" id="btn-submit" class="btn-acceder">ACCEDER</button>
-    </form>
-  </div>
-
-  <!-- SCRIPT INTEGRADO DIRECTAMENTE -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const btn = document.getElementById('btn-submit');
-      const toast = document.getElementById('toast-notification');
-      const toastMsg = document.getElementById('toast-message');
-
-      btn.addEventListener('click', () => {
-        const email = document.getElementById('email').value.trim();
-        const password = document.getElementById('password').value.trim();
-
-        // Validación de correo con @ en medio
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!emailRegex.test(email)) {
-          showNotification('Por favor ingresa un correo válido con "@" en medio.', '#ef4444');
-          return;
-        }
-
-        if (password === '') {
-          showNotification('Por favor ingresa tu contraseña.', '#ef4444');
-          return;
-        }
-
-        // Si pasa las validaciones, muestra la notificación de éxito
-        showNotification('¡Ingreso exitoso! Redirigiendo...', '#10b981');
-      });
-
-      function showNotification(message, color) {
-        toastMsg.textContent = message;
-        toast.style.backgroundColor = color;
-        toast.classList.remove('toast-hidden');
-
-        setTimeout(() => {
-          toast.classList.add('toast-hidden');
-        }, 3500);
-      }
-    });
-  </script>
 
 <!-- =========================
      INICIO CHATBOT FLOTANTE
