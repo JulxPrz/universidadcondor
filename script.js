@@ -208,3 +208,94 @@ if (btnVolver) {
     });
   });
 }
+
+/* RESPUESTA DEL BOT */ 
+
+
+// Respuestas predefinidas para cada opción
+const respuestasBot = {
+  oferta: "🎓 **Oferta Académica:**\nContamos con carreras en áreas de Diseño Gráfico, Desarrollo Web, Multimedia e Ingeniería. Puedes explorar nuestro plan de estudios completo en la sección académica de nuestro portal.",
+  
+  admisiones: "📝 **Proceso de Admisiones:**\nEl proceso de inscripción incluye:\n1. Diligenciar el formulario de inscripción.\n2. Adjuntar documento de identidad y diploma.\n3. Presentar la entrevista de admisión.\n\n¡Las inscripciones están abiertas actualmente!",
+  
+  noticias: "📰 **Últimas Noticias:**\n• Apertura de inscripciones para el próximo ciclo académico.\n• Exposición interactiva de proyectos estudiantiles este viernes.\n• Nuevos convenios para prácticas profesionales.",
+  
+  contacto: "📞 **Contacto e Información:**\n• **Atención:** Lunes a Viernes (8:00 AM - 6:00 PM)\n• **Correo:** admisiones@universidad.edu.co\n• **Teléfono:** (605) 300-0000"
+};
+
+// Función para agregar un mensaje al chat
+function agregarMensaje(texto, remitente) {
+  const contenedorMensajes = document.getElementById('chatbot-messages');
+  if (!contenedorMensajes) return;
+
+  const divMensaje = document.createElement('div');
+  divMensaje.classList.add('chat-message', `${remitente}-message`);
+  
+  // Reemplazar saltos de línea \n por <br> y negritas por <strong>
+  let textoFormateado = texto.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  divMensaje.innerHTML = textoFormateado;
+
+  contenedorMensajes.appendChild(divMensaje);
+
+  // Hace scroll automático hacia el último mensaje
+  contenedorMensajes.scrollTop = contenedorMensajes.scrollHeight;
+}
+
+// Asignar los eventos de clic a cada botón de opción rápida
+document.querySelectorAll('.quick-opt').forEach(boton => {
+  boton.addEventListener('click', function() {
+    const tema = this.getAttribute('data-topic');
+    const textoBoton = this.textContent.trim();
+
+    // 1. Muestra la opción elegida como mensaje enviado por el usuario
+    agregarMensaje(textoBoton, 'user');
+
+    // 2. Simula un breve tiempo de respuesta del chatbot (300ms)
+    setTimeout(() => {
+      const respuesta = respuestasBot[tema] || "Lo siento, no encontré información sobre este tema.";
+      agregarMensaje(respuesta, 'bot');
+    }, 300);
+  });
+});
+
+// Contenido detallado para Oferta Académica
+const detalleOfertaAcademica = `
+🎓 <strong>Programas y Cursos Habilitados</strong><br><br>
+
+🏛️ <strong>Carreras Profesionales:</strong>
+• Diseño Gráfico y Visual
+• Ingeniería de Software
+• Diseño de Interacción y UX/UI
+• Comunicación Digital<br><br>
+
+📜 <strong>Cursos y Diplomados:</strong>
+• Desarrollo Web Responsive (HTML, CSS, JavaScript)
+• Branding y Creación de Identidad de Marca
+• Ilustración Digital y Vectorización
+• Producción y Procesos de Impresión<br><br>
+
+💡 <em>Si deseas más información sobre el plan de estudios o requisitos de alguno de estos programas, escríbenos el nombre del curso en el chat.</em>
+`;
+
+// Lógica de respuesta al hacer clic en los botones
+document.querySelectorAll('.quick-opt').forEach(boton => {
+  boton.addEventListener('click', function() {
+    const textoSeleccionado = this.textContent.trim();
+
+    // 1. Muestra en el chat la opción que seleccionó el usuario
+    agregarMensaje(textoSeleccionado, 'user');
+
+    // 2. Muestra la respuesta correspondiente del bot
+    setTimeout(() => {
+      if (textoSeleccionado.includes('Oferta Académica')) {
+        agregarMensaje(detalleOfertaAcademica, 'bot');
+      } else if (textoSeleccionado.includes('Admisiones')) {
+        agregarMensaje("📝 <strong>Admisiones:</strong> Puedes iniciar tu proceso adjuntando tu documento de identidad y diligenciando el formulario de inscripción.", 'bot');
+      } else if (textoSeleccionado.includes('Noticias')) {
+        agregarMensaje("📰 <strong>Noticias:</strong> ¡Inscripciones abiertas para el nuevo periodo! Revisa nuestra sección de noticias en el portal.", 'bot');
+      } else if (textoSeleccionado.includes('Contacto')) {
+        agregarMensaje("📞 <strong>Contacto:</strong> Escríbenos a admisiones@universidad.edu.co o llámanos al (605) 300-0000.", 'bot');
+      }
+    }, 300);
+  });
+});
